@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- MAterialize CSS -->
+        <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css">
+
+        <!-- Charts JS -->
+        <link rel='stylesheet' href="./node_modules/chart.js/dist/Chart.min.css" >
+
+        <!-- DataTables CDN -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+        <title>Marvel Heroes Proa</title>
+    </head>
+    <body>
+        <!-- Menu -->
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">
+                    <img class="responsive-img" src="./logo.png" alt="logo" width="120"/>
+                </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">Detalhes dos Personagens</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="#Total">Home</a></li>
+            <li><a href="#Principais">Detalhes dos Personagens</a></li>
+        </ul>
+              
+
+        <div class="container">
+            <div class="row">
+                <div class="col s12" id="Total">
+                    <h3 class="red-text">Total de Heróis da Marvel</h1>
+                    <div class="col s10">
+                        <div class="card">
+                            <div class="card-content">
+                                <h1 id="total"></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12" id="Principais">
+                    <h3 class="red-text">Principais Heróis</h1>
+                    <div id="load">
+                        <span>Aguarde! Estamos montando tudo para você. Só leva um minuto!</span>
+                        <div class="progress">
+                            <div class="indeterminate"></div>
+                        </div>
+                    </div>
+                    <canvas id="barPrincipais" style="width: 100px"></canvas>
+                </div>
+                <div class="col s12" id="Lista">
+                    <table id="table" class="responsive-table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Comics</th>
+                            <th>Stories</th>
+                            <th>Events</th>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jquery CDN -->
+        <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+        crossorigin="anonymous"></script>
+
+        <!-- Charts JS -->
+        <script src="./node_modules/chart.js/dist/Chart.min.js" type="text/javascript"></script>
+
+        <!-- Materialize CSS js -->
+        <script src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>    
+        
+        <!-- MD5 blueimp -->
+        <script src="./scripts/md5.min.js" type="text/javascript"></script>
+
+        <!-- DataTables -->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+        <!-- Minha lógica -->
+        <script type="text/javascript" src="./scripts/main.js"></script>
+    </body>
+</html>
