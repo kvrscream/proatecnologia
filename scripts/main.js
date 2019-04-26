@@ -39,12 +39,13 @@ function GetTotalCharactersMarvel()
             
             //Get dos 100 primerios dados.
             for(data of response.data.results){
-                dados.push(response.data.results);
+                dados.push(data);
             }
             
             offsetHeroes = response.data.limit;
             totalHeroes = response.data.total;
-           $("#total").text(totalHeroes);
+            $("#total").text(totalHeroes);
+            PrincipalHeroes();
         }
     });
     
@@ -59,18 +60,17 @@ function PrincipalHeroes(){
             "apikey": publicKey,
             "hash" : hash, // Hash do timeStamp + privatekey + pulicKey
             "ts": ts, //TimeStamp definido como um numero aleatório
-            "offset": offsetHeroes,
+            "offset": offsetHeroes, //Faz o request no ultimo + 1 de onde parou
             "limit": 100,
         },
         dataType: 'json',
         success: function(response){
             
             for(data of response.data.results){
-                dados.push(response.data.results);
+                dados.push(data);
             }
             
             offsetHeroes = offsetHeroes + response.data.limit;
-
             if(offsetHeroes < totalHeroes){
                 PrincipalHeroes();
             } else {
@@ -86,8 +86,8 @@ function montaGrafico(){
     principais.removeAttr('style');
 
     //Calcula os mais
-    
-    dados = dados[0].sort(function(a, b){
+    console.log(dados);
+    dados = dados.sort(function(a, b){
         if(a.comics.available > b.comics.available){
             return 1;
         }
@@ -132,7 +132,8 @@ function montaGrafico(){
             labels: heros,
             datasets: [{
                 data: comics,
-                backgroundColor:['#ee6e73', '#3498db', '#8e44ad']
+                backgroundColor:['#ee6e73', '#3498db', '#8e44ad'],
+                label: "Herói:Comics"
             }]
         }
         
@@ -140,4 +141,4 @@ function montaGrafico(){
 }
 
 GetTotalCharactersMarvel();
-PrincipalHeroes();
+//PrincipalHeroes();
